@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "Nick",
+        "email": "nick@yahoo.com",
+        "age": "30",
+        "gender": "male",
+        "phone": "333-3322110"
+    },
+    {
+        "id": "2",
+        "name": "Willie",
+        "email": "willie@yahoo.com",
+        "age": "38",
+        "gender": "male",
+        "phone": "311-1123110"
+    },
+    {
+        "id": "3",
+        "name": "John",
+        "email": "john@yahoo.com",
+        "age": "20",
+        "gender": "male",
+        "phone": "333-3322110"
+    }
+]

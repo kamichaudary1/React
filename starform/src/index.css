@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-Bold.woff2') format('woff2'),
+        url('../public/fonts/Sora-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-Regular.woff2') format('woff2'),
+        url('../public/fonts/Sora-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-Medium.woff2') format('woff2'),
+        url('../public/fonts/Sora-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-ExtraBold.woff2') format('woff2'),
+        url('../public/fonts/Sora-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-ExtraLight.woff2') format('woff2'),
+        url('../public/fonts/Sora-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-Light.woff2') format('woff2'),
+        url('../public/fonts/Sora-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-Thin.woff2') format('woff2'),
+        url('../public/fonts/Sora-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sora';
+    src: url('../public/fonts/Sora-SemiBold.woff2') format('woff2'),
+        url('../public/fonts/Sora-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+.media-slider .slick-next, .media-slider .slick-prev {
+    top:auto;
+    bottom:-110px;
+    left:0;
+    right:auto;
+    border:1px solid #fff;
+    background-color:transparent;
+    width:60px;
+    height:60px;
+    display: flex !important;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+}
+.media-slider .slick-next:hover, .media-slider .slick-prev:hover {
+    background-color:#3C76B6;
+    border:1px solid #3C76B6;
+}
+.media-slider .slick-prev:after {
+    background:url(../public/images/arrow-left.png) no-repeat;
+    width: 13px;
+    height: 11px;
+    position: absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+    top:24px;
+    content:'';
+}
+.media-slider .slick-next {
+    left:70px !important;
+}
+.media-slider .slick-next:after {
+    background:url(../public/images/arrow-right.png) no-repeat;
+    width: 13px;
+    height: 11px;
+    position: absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+    content:'';
+}
+.media-slider .slick-dots li button:before, .media-slider .slick-next:before, .slick-prev:before {
+    display: none;;
+}
+.media-slider .slick-slide img {
+    margin-right:20px;
+    width:calc( 100% - 20px )
+}
+.spacesolar-slider .slick-dots li button:before, 
+.spacesolar-slider .slick-next:before, .slick-prev:before {
+    display: none;;
+}
+.spacesolar-slider .slick-next, .spacesolar-slider .slick-prev {
+    top:auto;
+    bottom:-180px;
+    width:40px;
+    height:40px;
+    display: flex !important;
+    flex-wrap:wrap;
+    justify-content: center;
+    align-items: center;
+    border:1px solid #fff;
+    border-radius:50%;
+    z-index: 9;
+}
+.spacesolar-slider .slick-prev:after {
+    background:url(../public/images/arrow-right.png) no-repeat;
+    width: 13px;
+    height: 11px;
+    position: absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+    content:'';
+}
+.spacesolar-slider .slick-next:after {
+    background:url(../public/images/arrow-left.png) no-repeat;
+    width: 13px;
+    height: 11px;
+    position: absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+    content:'';
+}
+.spacesolar-slider .slick-dots {
+    bottom:-150px;
+}
+.spacesolar-slider .slick-dots li {
+    width:12px;
+    height:12px;
+    border-radius: 50%;
+    border:1px solid #fff;
+}
+.spacesolar-slider .slick-dots li.slick-active {
+    background-color:#E8B222;
+    border:0;
+    width:9px;
+    height:9px;
+}
+.spacesolar-slider .slick-dots li.slick-active:before {
+    content:'';
+    position:absolute;
+    left:-3.6px;
+    top:-3.6px;
+    padding:2px;
+    border:2px solid #E8B222;
+    outline: #E8B222;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+}
+.default-btn {
+    clip-path: polygon(0 0, 100% 0, 100% 67%, 90% 100%, 0 100%, 0% 50%);
+
+}
+
+@media ( max-width: 767px ) {
+    .spacesolar-slider .slick-next, .spacesolar-slider .slick-prev {
+        left:12%;
+        right:auto;
+    }
+    .spacesolar-slider .slick-prev {
+        right:12%;
+        left:auto;
+    }
+    .media-slider .slick-slide span + img {
+        width:100%;
+        margin:0;
+    }
+    .spacesolar-slider .slick-next, .spacesolar-slider .slick-prev {
+        bottom:-140px
+    }
+    .spacesolar-slider .slick-dots {
+        bottom: -114px;
+    }
+
+}
+
+@media ( min-width:768px ){
+    .spacesolar-slider .slick-prev {
+        left:auto;
+        right:30%;
+    }
+    .spacesolar-slider .slick-next {
+        left:30%;
+    }
+    .media-slider .slick-slide .media-gradient-0 {
+        margin-right: 20px;
+        width: calc( 100% - 20px );
+    }
+
+}
+
+@media ( min-width:1200px ) {
+    .spacesolar-slider .slick-prev {
+        left:auto;
+        right:38%;
+    }
+    .spacesolar-slider .slick-next {
+        left:38%;
+    }
+}
