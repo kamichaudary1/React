@@ -287,3 +287,18 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
 };
 
 export default FindByAircraftV2;
+export type GeneralButtonProps =
+  | {
+      type: 'anchor';
+      url: string;
+      text: string;
+      onClick?: () => void;
+      target?: '_blank' | '_self';
+    }
+  | {
+      type: 'button' | 'submit' | 'reset';
+      url?: never;
+      text: string;
+      onClick?: () => void;
+      target?: never;
+    };
