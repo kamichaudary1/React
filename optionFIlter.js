@@ -41,6 +41,10 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
   const [selectedModel, setSelectedModel] = useState('');
   const [selectedYear, setSelectedYear] = useState('');
 
+  const [isModelActive, setIsModelActive] = useState(true);
+  const [isYearActive, setIsYearActive] = useState(true);
+  const [isButtonActive, setIsButtonActive] = useState(true);
+
   useEffect(() => {
     setAirCraftData(aircraftdata as IAirCraft[]);
     const allMakeValues: string[] = [];
@@ -71,10 +75,11 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
 
     setSelectedModel('');
     setSelectedYear('');
+    setIsModelActive(false);
   };
 
-  const onAircraftModelChange = (e) => {
-    const selectedModelOption = e.target.value;
+  const onAircraftModelChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const selectedModelOption = (event.target as HTMLInputElement).value;
     setSelectedModel(selectedModelOption);
     const filteredList = airCraftData.filter(
       (aircraftItem) => aircraftItem.model === selectedModelOption,
@@ -82,11 +87,13 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
     const allYearsByModel = filteredList.map((item) => item.YearSerialNumber);
     setYearOptions(allYearsByModel);
     setSelectedYear('');
+    setIsYearActive(false);
   };
 
-  const onAircraftYearChange = (e) => {
-    const selectedYearOption = e.target.value;
+  const onAircraftYearChange = (event: React.FormEvent<HTMLInputElement>) => {
+    const selectedYearOption = (event.target as HTMLInputElement).value;
     setSelectedYear(selectedYearOption);
+    setIsButtonActive(false);
   };
 
   // go button click function to get selected data
@@ -99,7 +106,7 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
         airCraftItem.YearSerialNumber === selectedYear
       );
     });
-    console.log('go button clicked', filteredList);
+    console.log(filteredList, ":::: filteredList")
     setFilteredData(filteredList);
   };
 
@@ -223,10 +230,9 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
                     onChange={onAircraftModelChange}
                     className="block w-full h-full px-4 py-3 pr-8 leading-tight transition-colors border-2 rounded appearance-none hover:border-k-green-500 text-k-grey-900 font-body focus:outline-none"
                     value={selectedModel}
+                    disabled={isModelActive}
                   >
-                    <option value="" disabled>
-                      Model
-                    </option>
+                    <option value="">Model</option>
                     {modelOptions.map((option, i) => {
                       return (
                         <option key={`option2-${i}`} value={option}>
@@ -250,6 +256,7 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
                     onChange={onAircraftYearChange}
                     className="block w-full h-full px-4 py-3 pr-8 leading-tight transition-colors border-2 rounded appearance-none hover:border-k-green-500 text-k-grey-900 font-body focus:outline-none"
                     value={selectedYear}
+                    disabled={isYearActive}
                   >
                     <option value="" disabled>
                       Year/Serial Number
@@ -270,7 +277,13 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
                 </div>
 
                 {/* Button */}
-                <div className="dark">
+                <div
+                  className={`relative dark ${
+                    isButtonActive
+                      ? 'before:absolute before:w-[94px] before:h-[54px] before:left-[-4px] before:top-[-4px] before:z-30'
+                      : ''
+                  }`}
+                >
                   <GeneralButton
                     type="button"
                     onClick={aircraftFilter}
@@ -287,18 +300,3 @@ const FindByAircraftV2: React.FC<FindByAircraftV2Props> = () => {
 };
 
 export default FindByAircraftV2;
-export type GeneralButtonProps =
-  | {
-      type: 'anchor';
-      url: string;
-      text: string;
-      onClick?: () => void;
-      target?: '_blank' | '_self';
-    }
-  | {
-      type: 'button' | 'submit' | 'reset';
-      url?: never;
-      text: string;
-      onClick?: () => void;
-      target?: never;
-    };
